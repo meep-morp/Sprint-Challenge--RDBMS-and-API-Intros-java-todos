@@ -36,6 +36,10 @@ public class User extends Auditable
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "user", allowSetters = true)
+    private List<Todo> todos = new ArrayList<>();
+
     /**
      * Primary email account of user. Could be used as the userid. Cannot be null and must be unique.
      */
@@ -43,6 +47,7 @@ public class User extends Auditable
         unique = true)
     @Email
     private String primaryemail;
+
 
     /**
      * Default constructor used primarily by the JPA.
@@ -68,6 +73,14 @@ public class User extends Auditable
         setUsername(username);
         setPassword(password);
         this.primaryemail = primaryemail;
+    }
+
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<Todo> todos) {
+        this.todos = todos;
     }
 
     /**
