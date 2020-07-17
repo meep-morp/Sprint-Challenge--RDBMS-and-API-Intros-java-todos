@@ -6,32 +6,28 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "todos")
-public class Todo extends Auditable {
-
+public class Todos extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long todoid;
 
     private String description;
-
     private boolean completed = false;
 
     @ManyToOne
-    @JoinColumn(name = "userid")
-    @JsonIgnoreProperties(value = "todos", allowSetters = true)
+    @JoinColumn(name = "userid",
+            nullable = false)
+    @JsonIgnoreProperties(value = "todos",
+            allowSetters = true)
     private User user;
 
-    // Constructors
+    public Todos() {
+    }
 
-    public Todo(User user, String description) {
+    public Todos(User user, String description) {
         this.description = description;
         this.user = user;
     }
-
-    public Todo() {
-    }
-
-    // Getters and Setters
 
     public long getTodoid() {
         return todoid;

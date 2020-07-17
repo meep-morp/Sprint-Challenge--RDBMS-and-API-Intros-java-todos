@@ -1,5 +1,6 @@
 package com.lambdaschool.todos.services;
 
+import com.lambdaschool.todos.models.Todos;
 import com.lambdaschool.todos.models.User;
 import com.lambdaschool.todos.views.UserNameCountTodos;
 
@@ -8,8 +9,7 @@ import java.util.List;
 /**
  * The Service that works with User Model.
  */
-public interface UserService
-{
+public interface UserService {
     /**
      * Returns a list of all the Users
      *
@@ -48,4 +48,6 @@ public interface UserService
      * @return List of UserNameCountTodos
      */
     List<UserNameCountTodos> getCountUserTodos();
+
+    void saveTodos(List<Todos> todos);
 }
