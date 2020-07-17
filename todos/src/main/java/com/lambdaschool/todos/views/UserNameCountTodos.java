@@ -1,6 +1,6 @@
 package com.lambdaschool.todos.views;
 
 public interface UserNameCountTodos {
-    int getCountodos();
+    int getCounttodos();
     String getUsernamerpt();
 }

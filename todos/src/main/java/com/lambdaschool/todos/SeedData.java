@@ -53,18 +53,17 @@ public class SeedData implements CommandLineRunner {
         u1.getTodos()
                 .add(new Todos(u1,
                         "Change the color of the home page"));
-        userService.saveTodos(u1.getTodos());
         userService.save(u1);
 
         Faker faker = new Faker();
         List<User> userFakers = new ArrayList<>();
         List<Todos> todoFakers = new ArrayList<>();
 
-        userFakers.add(new User("adminnnnn",
-                "passwordddddd",
-                "admin@lambdaschoolllll.local"));
-        todoFakers.add(new Todos(u1,
-                "Give Joe access rights"));
+//        userFakers.add(new User("adminnnnn",
+//                "passwordddddd",
+//                "admin@lambdaschoolllll.local"));
+//        todoFakers.add(new Todos(u1,
+//                "Give Joe access rights"));
 
         User u2 = new User("cinnamon",
                 "1234567",
@@ -78,7 +77,6 @@ public class SeedData implements CommandLineRunner {
         u2.getTodos()
                 .add(new Todos(u2,
                         "Groom my fur"));
-        userService.saveTodos(u2.getTodos());
         userService.save(u2);
 
         // user
@@ -88,19 +86,16 @@ public class SeedData implements CommandLineRunner {
         u3.getTodos()
                 .add(new Todos(u3,
                         "Rearrange my hutch"));
-        userService.saveTodos(u3.getTodos());
         userService.save(u3);
 
         User u4 = new User("puttat",
                 "password",
                 "puttat@school.lambda");
-        userService.saveTodos(u4.getTodos());
         userService.save(u4);
 
         User u5 = new User("misskitty",
                 "password",
                 "misskitty@school.lambda");
-        userService.saveTodos(u5.getTodos());
         userService.save(u5);
 
 //        for (int i = 0; i < 10; i++) {
@@ -109,7 +104,7 @@ public class SeedData implements CommandLineRunner {
 //                    faker.artist().toString()
 //            ));
 //        }
-//
+
 //        for (int i = 0; i < faker.number().numberBetween(1, 3); i++) {
 //            userFakers.get(faker.number().numberBetween(0, userFakers.size() - 1))
 //                    .getTodos().add(todoFakers.get(faker.number().numberBetween(0, todoFakers.size() - 1)));
@@ -125,9 +120,5 @@ public class SeedData implements CommandLineRunner {
 //            userService.save(newUser);
 //        }
 
-//        for (Todos t :
-//                todoFakers) {
-//            todosService.addTodo(t);
-//        }
     }
 }

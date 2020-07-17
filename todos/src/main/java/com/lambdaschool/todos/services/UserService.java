@@ -48,6 +48,4 @@ public interface UserService {
      * @return List of UserNameCountTodos
      */
     List<UserNameCountTodos> getCountUserTodos();
-
-    void saveTodos(List<Todos> todos);
 }

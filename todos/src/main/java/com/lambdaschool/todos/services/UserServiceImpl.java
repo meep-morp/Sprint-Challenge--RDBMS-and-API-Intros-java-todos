@@ -64,7 +64,12 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public User save(User user) {
+
         User newUser = new User();
+
+        if (user.getUserid() != 0) {
+            newUser.setUserid(user.getUserid());
+        }
 
         newUser.setUsername(user.getUsername()
                 .toLowerCase());
@@ -72,19 +77,16 @@ public class UserServiceImpl implements UserService {
         newUser.setPrimaryemail(user.getPrimaryemail()
                 .toLowerCase());
 
+        for (Todos t : user.getTodos()) {
+            newUser.getTodos().add(new Todos(newUser, t.getDescription()));
+        }
+
         return userrepos.save(newUser);
     }
 
     @Override
     public List<UserNameCountTodos> getCountUserTodos() {
         return userrepos.getCountUserTodos();
-
     }
 
-    @Override
-    public void saveTodos(List<Todos> todos) {
-        for (Todos t : todos) {
-            todorepository.save(t);
-        }
-    }
 }
